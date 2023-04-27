@@ -2,8 +2,10 @@
 // You should commit this file to source control.
 // Learn more about this file at https://docs.edg.io/guides/edgio_config
 module.exports = {
+  connector: '@edgio/qwik',
+
   // The name of the site in Edgio to which this app should be deployed.
-  name: "my-qwik-basic-starter",
+  // name: 'my-site-name',
 
   // The name of the team in Edgio to which this app should be deployed.
   // team: 'my-team-name',
@@ -11,16 +13,25 @@ module.exports = {
   // Overrides the default path to the routes file. The path should be relative to the root of your app.
   // routes: 'routes.js',
 
-  origins: [
-    {
-      name: 'wordpress',
-      override_host_header: 'wordpress.com',
-      hosts: [{location: 'lb.wordpress.com'}],
-
-      // Uncomment the following to configure a shield
-      // shields: { us_east: 'DCD' },
-    },
-  ],
+  // If you need to proxy some URLs to an origin instead of your Next.js app, you can configure the origins here:
+  // origins: [
+  //   {
+  //     // The name of the backend origin
+  //     name: "origin",
+  //
+  //     // When provided, the following value will be sent as the host header when connecting to the origin.
+  //     // If omitted, the host header from the browser will be forwarded to the origin.
+  //     override_host_header: "example.com",
+  //
+  //     // The list of backend hosts
+  //     hosts: [
+  //       {
+  //         // The domain name or IP address of the origin server
+  //         location: "example.com"
+  //       }
+  //     ]
+  //   }
+  // ],
 
   // Options for hosting serverless functions on Edgio
   // serverless: {
@@ -37,7 +48,7 @@ module.exports = {
   // Defaults to 200, which is the maximum allowed value.
   // prerenderConcurrency: 200,
 
-  // A list of glob patterns identifying which source files should be uploaded when running edgio deploy --includeSources.
+  // A list of glob patterns identifying which prerenderConcurrency source files should be uploaded when running edgio deploy --includeSources.
   // This option is primarily used to share source code with Edgio support personnel for the purpose of debugging. If omitted,
   // edgio deploy --includeSources will result in all files which are not gitignored being uploaded to Edgio.
   //
@@ -45,4 +56,4 @@ module.exports = {
   //   '**/*', // include all files
   //   '!(**/secrets/**/*)', // except everything in the secrets directory
   // ],
-};
+}
